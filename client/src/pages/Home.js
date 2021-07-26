@@ -25,11 +25,11 @@ function Home() {
           <h1>Recent Posts</h1>
         </Grid.Row>
         <Grid.Row>
-            {user && (
-                <Grid.Column>
-                    <PostForm/>
-                </Grid.Column>
-            )}
+          {user && (
+            <Grid.Column>
+              <PostForm />
+            </Grid.Column>
+          )}
           {loading ? (
             <h1>Loading posts..</h1>
           ) : (
