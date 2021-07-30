@@ -22,7 +22,7 @@ function Home() {
     return (
       <Grid columns={3}>
         <Grid.Row className="home-title">
-          <h2>Recent Posts</h2>
+          <h1>Recent Posts</h1>
         </Grid.Row>
         <Grid.Row>
           {user && (
