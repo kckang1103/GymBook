@@ -12,7 +12,7 @@ function Home() {
   console.log(`logging user: ${user}`);
   const { data, loading, error } = useQuery(FETCH_POSTS_QUERY);
 
-  if (loading) return "Loading...";
+  if (loading) return <h1 style={{ textAlign: "center" }}>Loading...</h1>;
   if (error) return `Error! ${error.message}`;
 
   if (data) {
@@ -22,12 +22,12 @@ function Home() {
     return (
       <Grid columns={3}>
         <Grid.Row className="home-title">
-          <h1>Recent Posts</h1>
+          <h2>Recent Posts</h2>
         </Grid.Row>
         <Grid.Row>
           {user && (
             <Grid.Column>
-              <PostForm/>
+              <PostForm />
             </Grid.Column>
           )}
           {loading ? (

@@ -17,7 +17,6 @@ function PostForm() {
       const data = cache.readQuery({
         query: FETCH_POSTS_QUERY,
       });
-      console.log(`in PostForm ${data}`);
       cache.writeQuery({
         query: FETCH_POSTS_QUERY,
         data: {
@@ -33,20 +32,28 @@ function PostForm() {
   }
 
   return (
-    <Form onSubmit={onSubmit}>
-      <h2>Create a post</h2>
-      <Form.Field>
-        <Form.Input
-          placeholder="Gym Book"
-          name="body"
-          onChange={onChange}
-          values={values.body}
-        />
-        <Button type="submit" color="blue">
-          Submit
-        </Button>
-      </Form.Field>
-    </Form>
+    <>
+      <Form onSubmit={onSubmit}>
+        <h3>Create a post</h3>
+        <Form.Field>
+          <Form.Input
+            placeholder="Gym Book"
+            name="body"
+            onChange={onChange}
+            values={values.body}
+            error={error ? true : false}
+          />
+          <Button disabled={!values.body.trim()} type="submit" color="blue">
+            Submit
+          </Button>
+        </Form.Field>
+      </Form>
+      {error && (
+        <div className="ui error message" style={{ marginBottom: 20 }}>
+          <li>{error.graphQLErrors[0].message}</li>
+        </div>
+      )}
+    </>
   );
 }
 
