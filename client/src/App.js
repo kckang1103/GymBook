@@ -8,6 +8,7 @@ import "./App.css";
 import { AuthProvider } from "./context/auth";
 import AuthRoute from "./util/AuthRoute";
 
+import HeaderTitle from "./components/HeaderTitle";
 import MenuBar from "./components/MenuBar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -16,8 +17,9 @@ import Register from "./pages/Register";
 function App() {
   return (
     <AuthProvider>
-      <Router>
+      <Router>   
         <Container>
+          <HeaderTitle />
           <MenuBar />
           <Route exact path="/" component={Home} />
           <AuthRoute exact path="/login" component={Login} />
