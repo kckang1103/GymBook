@@ -25,6 +25,14 @@ module.exports = {
         throw new Error(error);
       }
     },
+    async getUserPosts(_, { username }) {
+      try {
+        const posts = await Post.find().sort({ createdAt: -1 });
+        return posts.filter((p) => p.username === username);
+      } catch (error) {
+        throw new Error(error);
+      }
+    },
   },
   Mutation: {
     async createPost(_, { body }, context) {
