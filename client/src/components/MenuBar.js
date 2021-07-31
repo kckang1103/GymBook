@@ -14,7 +14,20 @@ function MenuBar() {
 
   const menuBar = user ? (
     <Menu tabular size="massive">
-      <Menu.Item name={user.username} active as={Link} to="/" />
+      <Menu.Item
+        name="home"
+        active={activeItem === "home"}
+        onClick={handleItemClick}
+        as={Link}
+        to="/"
+      />
+      <Menu.Item
+        name="profile"
+        active={activeItem === "profile"}
+        onClick={handleItemClick}
+        as={Link}
+        to={`/profile/${user.username}`}
+      />
       <Menu.Menu position="right">
         <Menu.Item name="logout" onClick={logout} />
       </Menu.Menu>
