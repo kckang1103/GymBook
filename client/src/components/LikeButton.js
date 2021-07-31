@@ -4,6 +4,8 @@ import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import { Button, Label, Icon } from "semantic-ui-react";
 
+import MyPopup from "../util/MyPopup";
+
 function LikeButton({ user, post: { id, likeCount, likes } }) {
   const [liked, setLiked] = useState(false);
 
@@ -14,28 +16,28 @@ function LikeButton({ user, post: { id, likeCount, likes } }) {
   }, [user, likes]);
 
   const [likePost] = useMutation(LIKE_POST_MUTATION, {
-      variables: { postId: id}
-  })
+    variables: { postId: id },
+  });
 
   const likeButton = user ? (
     liked ? (
       <Button color="red">
-        <Icon name="heart" style={{ margin: 0 }}/>
+        <Icon name="heart" style={{ margin: 0 }} />
       </Button>
     ) : (
       <Button color="red" basic>
-        <Icon name="heart" style={{ margin: 0 }}/>
+        <Icon name="heart" style={{ margin: 0 }} />
       </Button>
     )
   ) : (
     <Button as={Link} to="/login" color="red" basic>
-      <Icon name="heart" style={{ margin: 0 }}/>
+      <Icon name="heart" style={{ margin: 0 }} />
     </Button>
   );
 
   return (
     <Button as="div" labelPosition="right" onClick={likePost}>
-      {likeButton}
+      <MyPopup content={liked ? "Unlike" : "Like"}>{likeButton}</MyPopup>
       <Label as="a" basic color="red" pointing="left">
         {likeCount}
       </Label>
