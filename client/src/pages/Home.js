@@ -31,7 +31,7 @@ function Home() {
             </Grid.Column>
           )}
           {loading ? (
-            <h1>Loading posts..</h1>
+            <h1 style={{ textAlign: "center" }}>Loading...</h1>
           ) : (
             <Transition.Group>
               {posts &&
