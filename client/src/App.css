@@ -1,15 +1,28 @@
-.home-title{
-  display: block !important;
+.home-title {
+  display   : block !important;
   text-align: center;
-  font-size: 2rem;
+  font-size : 2rem;
   margin-top: 10px;
 }
 
-.form-container{
-  width: 400px;
+.form-container {
+  width : 400px;
   margin: auto;
 }
 
-.ui.red.button:focus, .ui.red.buttons .button:focus{
+.ui.red.button:focus,
+.ui.red.buttons .button:focus {
   background-color: #db2828;
+}
+
+.footer {
+  position: absolute !important;
+  bottom  : 50px !important;
+  width   : 100% !important;
+  height  : 35px !important;
+}
+
+.footer-container {
+  position  : relative !important;
+  min-height: 100vh !important;
 }

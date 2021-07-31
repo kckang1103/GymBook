@@ -1,15 +1,23 @@
 import React from "react";
-import { Divider, Label, Segment } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import { Container, Divider, Label, Segment } from "semantic-ui-react";
 
 function Footer() {
   const footer = (
-    <>
-      <Segment rasied size="small" basic textAlign={"center"}>
+    <Container fluid className="footer-container">
+      <Segment
+        raised
+        size="small"
+        basic
+        textAlign={"center"}
+        className="footer"
+      >
         <Divider />
-        Created by <Label as="a" href="https://www.kichulkang.com/">Kichul Kang</Label>
+        Created by{" "}
+        <Label as="a" href="https://www.kichulkang.com/">
+          Kichul Kang
+        </Label>
       </Segment>
-    </>
+    </Container>
   );
 
   return footer;
