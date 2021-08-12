@@ -5,10 +5,12 @@ import { useMutation } from "@apollo/client";
 
 import { useForm } from "../util/hooks";
 import { FETCH_POSTS_QUERY } from "../util/graphql";
+import bodypartOptions from "./Workouts";
 
 function PostForm() {
   const { values, onChange, onSubmit } = useForm(createPostCallback, {
     body: "",
+    bodypart: "",
   });
 
   const [createPost, { error }] = useMutation(CREATE_POST_MUTATION, {
@@ -37,12 +39,22 @@ function PostForm() {
         <h3>Create a post</h3>
         <Form.Field>
           <Form.Input
-            placeholder="Gym Book"
+            placeholder="Select category"
+            name="body"
+            fluid
+            selection
+            options={bodypartOptions}
+            onChange={onChange}
+            values={values.body}
+          />
+
+          {/* <Form.Input
+            placeholder="Add a message"
             name="body"
             onChange={onChange}
             values={values.body}
             error={error ? true : false}
-          />
+          /> */}
           <Button disabled={!values.body.trim()} type="submit" color="blue">
             Submit
           </Button>

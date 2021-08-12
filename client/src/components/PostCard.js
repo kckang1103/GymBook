@@ -25,7 +25,7 @@ function PostCard({
         <Card.Meta as={Link} to={`/posts/${id}`}>
           {moment(createdAt).format("MM/DD/YYYY")}
         </Card.Meta>
-        <Card.Description>{body}</Card.Description>
+        <Card.Description className="cardDescription">{body}</Card.Description>
       </Card.Content>
       <Card.Content extra>
         <LikeButton user={user} post={{ id, likes, likeCount }} />

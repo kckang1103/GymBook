@@ -11,16 +11,28 @@ function Profile(props) {
   console.log(`profile page: ${user}`);
   const username = user.username;
 
+  // TODO cache update when new post created
   const { data, loading, error } = useQuery(FETCH_USER_POSTS_QUERY, {
     variables: {
       username,
     },
+    update(cache) {
+        const data = cache.readQuery({
+          query: FETCH_USER_POSTS_QUERY,
+        });
+        cache.writeQuery({
+          query: FETCH_USER_POSTS_QUERY,
+          data: {
+            data,
+          },
+        });
+      },
   });
 
   if (loading) return <h1 style={{ textAlign: "center" }}>Loading...</h1>;
   if (error) return `Error! ${error.message}`;
 
-  if (data) {
+  while (data) {
     console.log(data);
     const { getUserPosts: posts } = data;
 

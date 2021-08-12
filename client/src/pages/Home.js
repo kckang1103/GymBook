@@ -5,7 +5,7 @@ import { Grid, Transition } from "semantic-ui-react";
 import { FETCH_POSTS_QUERY } from "../util/graphql";
 import { AuthContext } from "../context/auth";
 import PostCard from "../components/PostCard";
-import PostForm from "../components/PostForm";
+import PostFormNew from "../components/PostFormNew";
 
 function Home() {
   const { user } = useContext(AuthContext);
@@ -26,8 +26,8 @@ function Home() {
         </Grid.Row>
         <Grid.Row>
           {user && (
-            <Grid.Column>
-              <PostForm />
+            <Grid.Column width={16} style = {{ marginBottom: 20 }}>
+              <PostFormNew />
             </Grid.Column>
           )}
           {loading ? (
