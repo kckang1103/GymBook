@@ -24,5 +24,9 @@
 
 .footer-container {
   position  : relative !important;
-  min-height: 100vh !important;
+  min-height: 55vh !important;
+}
+
+.cardDescription {
+  white-space: pre-line;
 }
