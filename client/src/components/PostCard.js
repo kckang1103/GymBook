@@ -14,7 +14,7 @@ function PostCard({
   const { user } = useContext(AuthContext);
 
   return (
-    <Card fluid>
+    <Card fluid id="fonts">
       <Card.Content>
         <Image
           floated="right"

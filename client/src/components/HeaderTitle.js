@@ -6,7 +6,7 @@ import logo from "../images/gymBookLogo.png";
 function HeaderTitle() {
   const header = (
     <Segment size="huge" basic textAlign={"center"}>
-      <Header size="huge" as={Link} to="/">
+      <Header size="huge" as={Link} to="/" id="fonts">
         <Image verticalAlign='middle' centered size="massive"
           src={logo}
         />

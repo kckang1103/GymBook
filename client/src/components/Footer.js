@@ -10,6 +10,7 @@ function Footer() {
         basic
         textAlign={"center"}
         className="footer"
+        id="fonts"
       >
         <Divider />
         Created by{" "}

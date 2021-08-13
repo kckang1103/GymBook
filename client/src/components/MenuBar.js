@@ -13,7 +13,7 @@ function MenuBar() {
   const handleItemClick = (e, { name }) => setActiveItem(name);
 
   const menuBar = user ? (
-    <Menu tabular size="massive">
+    <Menu tabular size="massive" id="fonts">
       <Menu.Item
         name="home"
         active={activeItem === "home"}

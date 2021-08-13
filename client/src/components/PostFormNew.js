@@ -9,7 +9,7 @@ import bodypartOptions from "./Workouts";
 
 function PostFormNew() {
   let text = "";
- 
+
   const { values, onChange, onSubmit } = useForm(createPostCallback, {
     body: "",
   });
@@ -17,9 +17,14 @@ function PostFormNew() {
   const [value, setValue] = useState("");
 
   const handleSelect = (e) => {
-    text = values.body.slice(0, values.body.lastIndexOf(e.target.innerHTML)).concat(e.target.innerHTML).concat("\n");
+    text = values.body
+      .slice(0, values.body.lastIndexOf(e.target.innerHTML))
+      .concat(e.target.innerHTML)
+      .concat("\n");
 
-    setValue({ value: text.slice(0, text.lastIndexOf(e.target.innerHTML)).concat("\n") });
+    setValue({
+      value: text.slice(0, text.lastIndexOf(e.target.innerHTML)).concat("\n"),
+    });
     console.log("the value is: ", value);
     console.log("text is", text);
     values.body = text.concat("\n");
@@ -48,13 +53,14 @@ function PostFormNew() {
   return (
     <Card fluid>
       <Form onSubmit={onSubmit}>
-        <h3 style={{ textAlign: "center", marginTop: 12 }}>Create a post</h3>
-        <Form.Field>
+        <h3 style={{ textAlign: "center", marginTop: 12 }} id="fonts">Create a post</h3>
+        <Form.Field id="fonts">
           <Segment.Group horizontal>
             <Segment textAlign="center">
               <Menu vertical>
                 {bodypartOptions.map((bodypart, i) => (
                   <Dropdown
+                    id="fonts"
                     basic
                     text={bodypart.text}
                     pointing="left"
@@ -63,7 +69,11 @@ function PostFormNew() {
                   >
                     <Dropdown.Menu onClick={handleSelect}>
                       {bodypart.workouts.map((workout, i) => (
-                        <Dropdown.Item name="body" onClick={handleSelect}>
+                        <Dropdown.Item
+                          name="body"
+                          onClick={handleSelect}
+                          id="fonts"
+                        >
                           {workout.text}
                         </Dropdown.Item>
                       ))}
@@ -75,6 +85,7 @@ function PostFormNew() {
 
             <Segment>
               <Form.TextArea
+                id="fonts"
                 className="textarea"
                 placeholder="Add a description"
                 name="body"
@@ -82,7 +93,12 @@ function PostFormNew() {
                 value={values.body}
                 error={error ? true : false}
               />
-              <Button disabled={!values.body.trim()} type="submit" color="blue">
+              <Button
+                disabled={!values.body.trim()}
+                type="submit"
+                color="blue"
+                id="fonts"
+              >
                 Submit
               </Button>
             </Segment>
