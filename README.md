@@ -3,6 +3,7 @@
 </h1>
 <p align="center">
   <a>A full stack social media application that allows users to share their workout routines</a>
+  <br/>
   <a href="https://gymbook.netlify.app/" target="_blank">gymbook.netlify.app</a> Frontend hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
 </p>
 <p align="center">
