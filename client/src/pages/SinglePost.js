@@ -5,11 +5,13 @@ import moment from "moment";
 import {
   Button,
   Card,
+  Dimmer,
   Form,
   Grid,
   Image,
   Icon,
   Label,
+  Loader,
 } from "semantic-ui-react";
 
 import { AuthContext } from "../context/auth";
@@ -45,7 +47,11 @@ function SinglePost(props) {
 
   let postMarkup;
   if (!getPost) {
-    postMarkup = <h1 style={{ textAlign: "center" }}>Loading...</h1>;
+    postMarkup = (
+      <Dimmer active inverted>
+        <Loader inverted>Loading</Loader>
+      </Dimmer>
+    );
   } else {
     const {
       id,

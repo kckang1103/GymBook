@@ -36,7 +36,9 @@ function Home() {
             </Grid.Column>
           )}
           {loading ? (
-            <h1 style={{ textAlign: "center" }}>Loading...</h1>
+            <Dimmer active inverted>
+              <Loader inverted>Loading</Loader>
+            </Dimmer>
           ) : (
             <Transition.Group>
               {posts &&

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/react-hooks";
-import { Grid, Transition } from "semantic-ui-react";
+import { Dimmer, Grid, Loader, Transition } from "semantic-ui-react";
 
 import { AuthContext } from "../context/auth";
 import PostCard from "../components/PostCard";
@@ -17,19 +17,24 @@ function Profile(props) {
       username,
     },
     update(cache) {
-        const data = cache.readQuery({
-          query: FETCH_USER_POSTS_QUERY,
-        });
-        cache.writeQuery({
-          query: FETCH_USER_POSTS_QUERY,
-          data: {
-            data,
-          },
-        });
-      },
+      const data = cache.readQuery({
+        query: FETCH_USER_POSTS_QUERY,
+      });
+      cache.writeQuery({
+        query: FETCH_USER_POSTS_QUERY,
+        data: {
+          data,
+        },
+      });
+    },
   });
 
-  if (loading) return <h1 style={{ textAlign: "center" }}>Loading...</h1>;
+  if (loading)
+    return (
+      <Dimmer active inverted>
+        <Loader inverted>Loading</Loader>
+      </Dimmer>
+    );
   if (error) return `Error! ${error.message}`;
 
   while (data) {
@@ -43,7 +48,9 @@ function Profile(props) {
         </Grid.Row>
         <Grid.Row>
           {loading ? (
-            <h1 style={{ textAlign: "center" }}>Loading...</h1>
+            <Dimmer active inverted>
+              <Loader inverted>Loading</Loader>
+            </Dimmer>
           ) : (
             <Transition.Group>
               {posts &&
