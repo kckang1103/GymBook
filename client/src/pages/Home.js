@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { Grid, Transition } from "semantic-ui-react";
+import { Dimmer, Grid, Loader, Transition } from "semantic-ui-react";
 
 import { FETCH_POSTS_QUERY } from "../util/graphql";
 import { AuthContext } from "../context/auth";
@@ -12,7 +12,12 @@ function Home() {
   console.log(`logging user: ${user}`);
   const { data, loading, error } = useQuery(FETCH_POSTS_QUERY);
 
-  if (loading) return <h1 style={{ textAlign: "center" }}>Loading...</h1>;
+  if (loading)
+    return (
+      <Dimmer active inverted>
+        <Loader inverted>Loading</Loader>
+      </Dimmer>
+    );
   if (error) return `Error! ${error.message}`;
 
   if (data) {
@@ -26,7 +31,7 @@ function Home() {
         </Grid.Row>
         <Grid.Row>
           {user && (
-            <Grid.Column width={16} style = {{ marginBottom: 20 }}>
+            <Grid.Column width={16} style={{ marginBottom: 20 }}>
               <PostFormNew />
             </Grid.Column>
           )}
