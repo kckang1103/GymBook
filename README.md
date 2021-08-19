@@ -16,7 +16,7 @@
 
 - [MongoDB](https://www.mongodb.com/) - NoSQL database program
 - [GraphQL](https://graphql.org/) - Query language for APIs
-- [Express] (https://expressjs.com/) - Node.js web application framework
+- [Express](https://expressjs.com/) - Node.js web application framework
 - [React](https://es.reactjs.org/) - Front-End JavaScript library
 - [Semantic UI](https://react.semantic-ui.com/) - Front-End UI library
 
