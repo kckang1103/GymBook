@@ -44,7 +44,7 @@ function Profile(props) {
     return (
       <Grid columns={3}>
         <Grid.Row className="home-title">
-          <h1>{username}'s Profile</h1>
+          <h1 id="fonts">{username}'s Profile</h1>
         </Grid.Row>
         <Grid.Row>
           {loading ? (
