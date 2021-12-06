@@ -25,7 +25,7 @@ function Home() {
     const { getPosts: posts } = data;
 
     return (
-      <Grid columns={3}>
+      <Grid mobile={1} tablet={2} computer={3}>
         <Grid.Row className="home-title">
           <h1 id="fonts">Recent Posts</h1>
         </Grid.Row>
