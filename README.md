@@ -14,7 +14,7 @@
 
 ## Technologies used 🛠️
 
-- [MongoDB](https://www.mongodb.com/) - NoSQL database program
+- [MongoDB](https://www.mongodb.com/) - NoSQL database
 - [GraphQL](https://graphql.org/) - Query language for APIs
 - [Express](https://expressjs.com/) - Node.js web application framework
 - [React](https://es.reactjs.org/) - Front-End JavaScript library
